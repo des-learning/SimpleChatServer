@@ -26,11 +26,11 @@ class OutputThread implements Runnable {
                         break;
                     }
                 }
-                output = responses.poll();
             }
 
             try {
-                this.stream.writeUTF(output);
+                if (output != null)
+                    this.stream.writeUTF(output);
             } catch (IOException e) {
                 break;
             }
